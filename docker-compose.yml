@@ -1,6 +1,41 @@
 version: '3'
 services: 
-  slave: 
+  jenkins_slave: 
     build: 
       context: .
     image: hariomsaini/jenkins_slave
+    networks: 
+      - netgen
+      
+networks: 
+netgen:
+driver: bridge
+
+# version: '3'
+
+# services: 
+
+#   jenkins_slave:
+#     # build:
+#       # context: ./jenkins
+#       # dockerfile: Dockerfile
+#     image: jenkins/slave
+#     hostname: jenkins.server
+#     container_name: jenkins 
+#     ports:
+#       - 8080:8080
+#       - 50000:50000
+#     volumes:
+#       - "jenkins_home:/var/jenkins_home"
+#       # - "$HOME/testmvn:/home/testmvn"
+#       - "/var/run/docker.sock:/var/run/docker.sock"
+#       - "/usr/bin/docker:/usr/bin/docker"
+#     networks: 
+#       - netgen
+
+# networks: 
+#   netgen:
+#     driver: bridge
+
+# volumes:
+#   jenkins_home:
